@@ -1,0 +1,56 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Posts</th>
+      <th scope="col">Show</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @users.each do |user| %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= user.email %></td>
+      <td>
+          <% if user.admin %>
+    Admin
+    <% else %>
+    User
+    <% end %>
+      </td>
+      <% @posts.each do |post| %>
+      
+      <% if post.user == user %>
+      
+      <% if user.posts.any? %>
+         <td><%= post.title %></td>
+      
+      <% else %>
+      
+        <td>Post not found</td>
+
+         <% end %>
+      <% end %>
+      
+      
+      <% end %>
+     
+      <td><%= link_to "Show", admin_user_path(user) %></td>
+    </tr>
+<% end %>
+
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+    
+

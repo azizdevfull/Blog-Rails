@@ -1,0 +1,10 @@
+ <% if current_user %>
+   <%= current_user.email %> <br>
+   <% if current_user.admin? %>
+     <%= link_to "Admin Dashboard", admin_root_url %>
+   <% end %>
+   <% else %>
+   <%= link_to "Sign up", new_user_registration_path %>
+   <%= link_to "Sign In", new_user_session_path %>
+
+ <% end %>

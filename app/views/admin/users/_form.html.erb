@@ -1,0 +1,11 @@
+<%= form_with(model: [ :admin, @user ], local: true) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :admin %>
+  <%= f.select :admin, {'User': false, 'Admin': true}, { include_blank: 'You can choose role'}, { class: 'form-control' , required: true } %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit %>
+<% end %>
